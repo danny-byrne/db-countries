@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Head from "next/head";
 import CountryFilter from "../components/CountryFilter";
+import CountriesContainer from "../containers/CountriesContainer";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <CountryFilter />
+        <CountriesContainer />
       </main>
     </div>
   );
