@@ -8,8 +8,8 @@ const CountriesContainer = () => {
 
   console.log({ countries });
   return (
-    <div className="h-screen w-screen bg-teal-200">
-      <div className="flex flex-col gap-4 ">
+    <div className="h-screen w-screen bg-teal-200  ">
+      <div className="flex flex-col gap-4 place-items-center ">
         {countries.map((country) => (
           <CountryCard key={country.name} country={country} />
         ))}
