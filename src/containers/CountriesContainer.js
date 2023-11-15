@@ -6,7 +6,6 @@ import CountryCard from "../components/CountryCard";
 const CountriesContainer = () => {
   const { countries, selectedCountry } = useCountryAndFilterData();
 
-  console.log({ countries });
   return (
     <div className="h-full w-screen bg-teal-200 text-gray-800 ">
       <div className="flex flex-col gap-4 place-items-center ">

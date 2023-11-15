@@ -2,6 +2,7 @@ import Image from "next/image";
 import Head from "next/head";
 import CountryFilter from "../components/CountryFilter";
 import CountriesContainer from "../containers/CountriesContainer";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 export default function Home() {
   return (
@@ -13,7 +14,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <CountriesContainer />
+        <ErrorBoundary>
+          <CountriesContainer />
+        </ErrorBoundary>
       </main>
     </div>
   );
