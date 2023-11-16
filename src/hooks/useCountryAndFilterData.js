@@ -17,11 +17,11 @@ export const useCountryAndFilterData = () => {
       if (response.ok) {
         const data = await response.json();
 
-        const parsedCountries = data.map((country: any) => {
+        const parsedCountries = data.map((country) => {
           return parseCountryData(country);
         });
 
-        const sortedCountries = parsedCountries.sort((a: any, b: any) => {
+        const sortedCountries = parsedCountries.sort((a, b) => {
           return a.name.localeCompare(b.name);
         });
 

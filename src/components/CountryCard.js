@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import { formatNumberWithCommas } from "../helpers";
 
 const FLAG_WIDTH = 120;
 const FLAG_HEIGHT = (3 / 5) * FLAG_WIDTH;
-
-import { formatNumberWithCommas } from "../helpers";
 
 const CountryCard = ({ country, onClick }) => {
   const { name, capital, population, area, flag } = country;
