@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useCountryAndFilterData } from "../hooks/useCountryAndFilterData";
 import CountryCard from "../components/CountryCard";
 import Modal from "../components/Modal";
@@ -18,10 +18,6 @@ const CountriesContainer = () => {
     setSelectedCountry(countries[index]);
     setShowModal(true);
   };
-
-  useEffect(() => {
-    console.log({ selectedCountry });
-  }, [selectedCountry]);
 
   return (
     <>

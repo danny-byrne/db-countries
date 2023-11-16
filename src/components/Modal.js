@@ -1,7 +1,16 @@
 import React from "react";
 import BarChart from "./BarChart";
+import ErrorBoundary from "./ErrorBoundary";
+
+import { formatNumberWithCommas } from "../helpers";
+
+const RED = "rgba(255, 99, 132, 0.2)";
+const BLUE = "rgba(54, 162, 235, 0.2)";
 
 const Modal = ({ hideModal, selectedCountry }) => {
+  const { area, population } = selectedCountry;
+  const formattedPopulation = formatNumberWithCommas(population);
+  const formattedArea = formatNumberWithCommas(area);
   return (
     <>
       <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -20,7 +29,20 @@ const Modal = ({ hideModal, selectedCountry }) => {
                 </span>
               </button>
             </div>
-            <BarChart selectedCountry={selectedCountry} />
+            <ErrorBoundary>
+              <BarChart
+                data={area}
+                label="Area km/sq"
+                bottomLabel={`Area: ${formattedArea} km/sq`}
+                backGroundColor={RED}
+              />
+              <BarChart
+                data={population}
+                label="Population"
+                bottomLabel={`Population: ${formattedPopulation}`}
+                backGroundColor={BLUE}
+              />
+            </ErrorBoundary>
           </div>
         </div>
       </div>
