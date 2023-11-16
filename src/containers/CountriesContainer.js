@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCountryAndFilterData } from "../hooks/useCountryAndFilterData";
 import CountryCard from "../components/CountryCard";
 import Modal from "../components/Modal";
@@ -8,6 +8,20 @@ const CountriesContainer = () => {
   const { countries, selectedCountry, setSelectedCountry } =
     useCountryAndFilterData();
   const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedCountry(null);
+  };
+
+  const handleSelectCountry = (index) => {
+    setSelectedCountry(countries[index]);
+    setShowModal(true);
+  };
+
+  useEffect(() => {
+    console.log({ selectedCountry });
+  }, [selectedCountry]);
 
   return (
     <>
@@ -18,12 +32,14 @@ const CountriesContainer = () => {
             <CountryCard
               key={country.name}
               country={country}
-              onClick={() => setSelectedCountry(countries[index])}
+              onClick={() => handleSelectCountry(index)}
             />
           ))}
         </div>
       </div>
-      <Modal />
+      {showModal && (
+        <Modal hideModal={handleCloseModal} selectedCountry={selectedCountry} />
+      )}
     </>
   );
 };

@@ -41,5 +41,6 @@ export const useCountryAndFilterData = () => {
   return {
     countries,
     selectedCountry,
+    setSelectedCountry,
   };
 };

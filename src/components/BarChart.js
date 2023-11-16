@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from "react";
 
 import Chart from "chart.js/auto";
 
-const BarChart = ({ area, population }) => {
+const BarChart = ({ selectedCountry }) => {
+  const { area, population } = selectedCountry;
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
@@ -20,10 +21,9 @@ const BarChart = ({ area, population }) => {
       chartInstance.current = new Chart(ctx, {
         type: "bar",
         data: {
-          labels: ["Area", "Population"],
+          labels: ["Area km/sq", "Population"],
           datasets: [
             {
-              label: "Bar Chart",
               data: [area, population],
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
